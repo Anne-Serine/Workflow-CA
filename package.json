@@ -1,12 +1,13 @@
 {
   "name": "css-frameworks-ca",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Test",
   "main": "index.js",
   "scripts": {
     "build": "sass src/scss:dist/css",
     "start": "sass --watch src/scss:dist/css & live-server",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "format": "prettier -w **/*.js"
   },
   "keywords": [],
   "author": "Noroff",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "live-server": "^1.2.2",
+    "prettier": "^3.2.5",
     "sass": "^1.54.8"
   },
   "dependencies": {
