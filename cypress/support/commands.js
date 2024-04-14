@@ -54,6 +54,10 @@ Cypress.Commands.add("loginWithInvalidUser", () => {
 
 Cypress.Commands.add("isLoggedIn", () => {
   cy.window().then((win) => {
+    const storedProfile = win.localStorage.getItem("profile");
+    cy.fixture("example").then((user) => {
+      expect(storedProfile).to.equal(JSON.stringify(user));
+    });
     expect(win.localStorage.getItem("token")).to.be.a("string");
   });
 });
@@ -66,5 +70,6 @@ Cypress.Commands.add("logout", () => {
 Cypress.Commands.add("isLoggedOut", () => {
   cy.window().then((win) => {
     expect(win.localStorage.getItem("token")).to.be.null;
+    expect(win.localStorage.getItem("profile")).to.be.null;
   });
 });
